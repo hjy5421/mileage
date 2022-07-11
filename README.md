@@ -30,7 +30,9 @@ java -jar mileage-0.0.1-SNAPSHOT.jar
 5. http://localhost:8080 으로 요청을 보냅니다.
 
 
-> 참고사항 : POST /events API 경우, userId, placeId 유효성 여부 확인 로직이 있어 아래 query를 실행해야 합니다.
+[참고사항] 
+> POST /events API 경우, userId, placeId 유효성 여부 확인 로직이 있습니다.
+> POST /events API 호출 전에 아래 query를 실행하여 userId값, placeId값을 미리 insert해줘야 합니다.
 > ```
 > insert into user(user_id,user_point) values (${userId},0);
 > insert into place(place_id) values ($placeId});
