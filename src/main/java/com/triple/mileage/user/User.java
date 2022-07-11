@@ -5,7 +5,6 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 
 @Entity
-@Table(indexes = @Index(name = "user_id", columnList = "userId"))
 public class User {
     @Id
     @Column(nullable = false)

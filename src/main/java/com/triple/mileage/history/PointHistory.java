@@ -9,8 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(indexes = {
-        @Index(name = "user_id", columnList = "userId"),
-        @Index(name = "review_id",columnList = "reviewId")
+        @Index(columnList = "userId"),
 })
 public class PointHistory {
     @Id
