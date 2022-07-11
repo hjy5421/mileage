@@ -32,10 +32,18 @@ java -jar mileage-0.0.1-SNAPSHOT.jar
 
 [참고사항] 
 > POST /events API 경우, userId, placeId 유효성 여부 확인 로직이 있습니다.
-> POST /events API 호출 전에 아래 query를 실행하여 userId값, placeId값을 미리 insert해줘야 합니다.
+> POST /events API 호출 시 userId, placeId는 아래의 값으로 설정해야 합니다.
+> 데이터 설정 query는 src/main/resources/sql/data.sql에서 확인하실 수 있습니다.
 > ```
-> insert into user(user_id,user_point) values (${userId},0);
-> insert into place(place_id) values ($placeId});
+> userId : 
+> e68abea0-81d2-4b13-9a90-6c1fbb0e754c
+> 2555c522-45ff-4f3e-b37c-9f4f8d315b6a
+> bc94c616-6dc7-4d73-ada3-e55814a2f1c5
+>
+> placeId :
+> 2fbe21a6-dab8-46dc-9be8-c948699eba80
+> afcca72f-8687-460c-97f4-25ce590d45f5
+> 61e7b3da-4f94-4ffc-8638-8fb06eb2e443
 > ```
 
 # API
