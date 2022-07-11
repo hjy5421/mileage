@@ -49,7 +49,7 @@ public class MileageController {
             deleteReview(reviewRequest);
         } else {
             // 미지원 Action
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("unsupported action");
         }
 
         return Result.success();
@@ -72,7 +72,7 @@ public class MileageController {
      */
     private void deleteReview(ReviewRequest reviewRequest) {
         if (!isUserIdValid(reviewRequest.getUserId()) || !isPlaceIdValid(reviewRequest.getPlaceId()) || !isReviewIdValid(reviewRequest.getReviewId())) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("invalid id");
         }
 
         int changePoint = pointHistoryService.findDeleteChangePoint(reviewRequest);
@@ -92,7 +92,7 @@ public class MileageController {
      */
     private void updateReview(ReviewRequest reviewRequest) {
         if (!isUserIdValid(reviewRequest.getUserId()) || !isPlaceIdValid(reviewRequest.getPlaceId()) || !isReviewIdValid(reviewRequest.getReviewId())) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("invalid id");
         }
 
         boolean isExistOriginContent = reviewService.existsContent(reviewRequest.getReviewId());
@@ -115,12 +115,12 @@ public class MileageController {
      */
     private void createReview(ReviewRequest reviewRequest) {
         if (!isUserIdValid(reviewRequest.getUserId()) || !isPlaceIdValid(reviewRequest.getPlaceId())) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("invalid id");
         }
 
         //한 사용자마다 장소마다 리뷰 1개만 가능
         if(reviewService.existsByUserIdAndPlaceId(reviewRequest.getUserId(),reviewRequest.getPlaceId())){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("duplicate id");
         }
 
         reviewService.createReview(reviewRequest);

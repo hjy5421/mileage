@@ -38,12 +38,12 @@ public class ReviewService {
 
         if (!origin.getUserId().equals(reviewRequest.getUserId())) {
             log.error("{} : Incorrect userId {}", log.getName(), reviewRequest.getPlaceId());
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Incorrect userId");
         }
 
         if (!origin.getPlaceId().equals(reviewRequest.getPlaceId())) {
             log.error("{} : Incorrect placeId {}", log.getName(), reviewRequest.getPlaceId());
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Incorrect placeId");
         }
 
         origin.setContent(reviewRequest.getContent());

@@ -56,15 +56,15 @@ public class ReviewRequest {
 
     public void verify() {
         if (!StringUtils.hasText(this.getReviewId()) || !StringUtils.hasText(this.getUserId()) || !StringUtils.hasText(this.getPlaceId())) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("invalid id");
         }
 
         if (!StringUtils.hasText(this.getContent()) && CollectionUtils.isEmpty(this.attachedPhotoIds)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("content or attachedphotoIds required");
         }
 
         if (this.getType() != Type.REVIEW) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("invalid type");
         }
     }
 }

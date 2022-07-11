@@ -16,8 +16,8 @@ public class ExceptionHandlingController {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(IllegalArgumentException.class)
     public Result illegalArgumentHandle(IllegalArgumentException e) {
-        log.error("[EXCEPTION] {}", e.getMessage());
-        return Result.clientError(e.getMessage());
+        log.error("[EXCEPTION] ", e);
+        return Result.clientError(e.toString());
     }
 
 
