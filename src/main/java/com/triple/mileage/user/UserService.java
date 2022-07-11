@@ -16,8 +16,11 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    /*
-    사용자 포인트 수정
+    /**
+     * 사용자 포인트 수정
+     * @param userId
+     * @param changePoint
+     * @return
      */
     public User updateUserPoint(String userId, int changePoint) {
         User origin = userRepository.findByUserId(userId);
@@ -25,9 +28,11 @@ public class UserService {
         return userRepository.save(origin);
     }
 
-    /*
-    사용자 포인트 조회
-    */
+    /**
+     * 사용자 포인트 조회
+     * @param userId
+     * @return
+     */
     public User getUser(String userId) {
         return userRepository.findByUserId(userId);
     }

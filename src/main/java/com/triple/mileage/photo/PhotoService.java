@@ -21,8 +21,10 @@ public class PhotoService {
         this.photoRepository = photoRepository;
     }
 
-    /*
-    사진 생성
+    /**
+     * 사진 생성
+     * @param reviewId
+     * @param photoIds
      */
     public void createPhotos(String reviewId, List<String> photoIds) {
         if (CollectionUtils.isEmpty(photoIds)) {
@@ -74,6 +76,10 @@ public class PhotoService {
         photoRepository.saveAll(addPhotos);
     }
 
+    /**
+     * 사진 삭제
+     * @param reviewId
+     */
     public void deletePhotos(String reviewId) {
         List<Photo> originPhotos = photoRepository.findAllByReviewId(reviewId);
         if (!CollectionUtils.isEmpty(originPhotos)) {

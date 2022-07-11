@@ -13,16 +13,21 @@ public class PointHistoryService {
         this.pointHistoryRepository = pointHistoryRepository;
     }
 
-    /*
-    포인트 이력 생성
+    /**
+     * 포인트 이력 생성
+     * @param reviewRequest
+     * @param changePoint
+     * @return
      */
     public PointHistory createPointHistory(ReviewRequest reviewRequest, int changePoint) {
         PointHistory pointHistory = new PointHistory(reviewRequest.getUserId(), reviewRequest.getReviewId(), changePoint);
         return pointHistoryRepository.save(pointHistory);
     }
 
-    /*
-    리뷰 생성 시, 내용 점수와 보너스 점수 회수
+    /**
+     * 리뷰 생성 시, 내용 점수와 보너스 점수 회수
+     * @param reviewRequest
+     * @return
      */
     public int findDeleteChangePoint(ReviewRequest reviewRequest) {
         List<PointHistory> pointHistories = pointHistoryRepository.findAllByReviewIdAndUserId(reviewRequest.getReviewId(), reviewRequest.getUserId());

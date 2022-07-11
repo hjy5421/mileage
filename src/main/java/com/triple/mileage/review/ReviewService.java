@@ -19,8 +19,11 @@ public class ReviewService {
         this.reviewRepository = reviewRepository;
     }
 
-    /*
-    리뷰 생성
+    /**
+     * 리뷰 생성
+     *
+     * @param reviewRequest
+     * @return
      */
     public Review createReview(ReviewRequest reviewRequest) {
         Review review = new Review(reviewRequest.getReviewId(),
@@ -30,8 +33,11 @@ public class ReviewService {
         return reviewRepository.save(review);
     }
 
-    /*
-    리뷰 수정
+    /**
+     * 리뷰 수정
+     *
+     * @param reviewRequest
+     * @return
      */
     public Review updateReview(ReviewRequest reviewRequest) {
         Review origin = reviewRepository.findByReviewId(reviewRequest.getReviewId());
@@ -50,16 +56,21 @@ public class ReviewService {
         return reviewRepository.save(origin);
     }
 
-    /*
-    리뷰 삭제
+    /**
+     * 리뷰 삭제
+     *
+     * @param reviewRequest
      */
     public void deleteReview(ReviewRequest reviewRequest) {
         Review origin = reviewRepository.findByReviewId(reviewRequest.getReviewId());
         reviewRepository.delete(origin);
     }
 
-    /*
-    리뷰 생성 시 부여할 점수 확인
+    /**
+     * 리뷰 생성 시 부여할 점수 확인
+     *
+     * @param reviewRequest
+     * @return
      */
     public int findAddChangePoint(ReviewRequest reviewRequest) {
         int changePoint = 0;
@@ -108,8 +119,11 @@ public class ReviewService {
         return changePoint;
     }
 
-    /*
-    리뷰에 글이 있는지 확인
+    /**
+     * 리뷰에 글이 있는지 확인
+     *
+     * @param reviewId
+     * @return
      */
     public boolean existsContent(String reviewId) {
         Review origin = reviewRepository.findByReviewId(reviewId);
