@@ -31,9 +31,9 @@ java -jar mileage-0.0.1-SNAPSHOT.jar
 
 
 [참고사항] 
-> POST /events API 경우, userId, placeId 유효성 여부 확인 로직이 있습니다.
-> POST /events API 호출 시 userId, placeId는 아래의 값으로 설정해야 합니다.
-> 데이터 설정 query는 src/main/resources/sql/data.sql에서 확인하실 수 있습니다.
+> POST /events API 경우, userId, placeId 유효성 여부 확인 로직이 있습니다.  
+> POST /events API 호출 시 userId, placeId는 아래의 값으로 설정해야 합니다.  
+> 데이터 설정 query는 src/main/resources/sql/data.sql에서 확인하실 수 있습니다.  
 > ```
 > userId : 
 > e68abea0-81d2-4b13-9a90-6c1fbb0e754c
